@@ -1,0 +1,350 @@
+{
+	"name": "LatestRawFile",
+	"properties": {
+		"activities": [
+			{
+				"name": "Log Start Event",
+				"description": "Log Start Event information.",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderStoredProcedureName": "uspLogEventNotebookStart",
+						"storedProcedureParameters": {
+							"DataFactoryName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().DataFactory",
+									"type": "Expression"
+								}
+							},
+							"NotebookName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().parameters.NotebookName",
+									"type": "Expression"
+								}
+							},
+							"NotebookStartDate": {
+								"type": "DateTime",
+								"value": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
+							},
+							"ParentPipelineExecutionLogKey": {
+								"type": "Int64",
+								"value": "0"
+							},
+							"PipelineRunId": {
+								"type": "Guid",
+								"value": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
+							},
+							"PipelineTriggerID": {
+								"type": "Guid",
+								"value": {
+									"value": "@pipeline().TriggerId",
+									"type": "Expression"
+								}
+							},
+							"PipelineTriggerName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().TriggerName",
+									"type": "Expression"
+								}
+							},
+							"PipelineTriggerType": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().TriggerType",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					"dataset": {
+						"referenceName": "FrameworkAzureSqlTable",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "uspGetNotebookADLS",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Log Start Event",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderStoredProcedureName": "uspGetNotebookADLS",
+						"storedProcedureParameters": {
+							"NotebookName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().parameters.NotebookName",
+									"type": "Expression"
+								}
+							},
+							"Rundatefolder": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().parameters.NotebookRunDateFolder",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					"dataset": {
+						"referenceName": "FrameworkAzureSqlTable",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Log Success Event",
+				"description": "Log Success Event information.",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Latest Raw File",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "uspLogEventNotebookEnd",
+					"storedProcedureParameters": {
+						"NotebookExecutionGroupName": {
+							"value": {
+								"value": "@pipeline().parameters.NotebookExecutionGroupName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"NotebookExecutionLogKey": {
+							"value": {
+								"value": "@activity('Log Start Event').output.firstRow.NotebookExecutionLogKey",
+								"type": "Expression"
+							},
+							"type": "Int64"
+						},
+						"NotebookName": {
+							"value": {
+								"value": "@pipeline().parameters.NotebookName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"NotebookStatus": {
+							"value": "SUCCEEDED",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Log Failure Event",
+				"description": "Log Failure Event information.",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Latest Raw File",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "uspLogEventNotebookError",
+					"storedProcedureParameters": {
+						"ErrorCode": {
+							"value": {
+								"value": "@activity('Latest Raw File').error.errorcode",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"ErrorDescription": {
+							"value": {
+								"value": "@activity('Latest Raw File').error.message",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"NotebookExecutionLogKey": {
+							"value": {
+								"value": "@activity('Log Start Event').output.firstRow.NotebookExecutionLogKey",
+								"type": "Expression"
+							},
+							"type": "Int64"
+						},
+						"SourceName": {
+							"value": {
+								"value": "@pipeline().parameters.NotebookName",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Latest Raw File",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Get Notebook Parameters",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Framework/Master Notebook Execution",
+					"baseParameters": {
+						"rawDataPath": {
+							"value": "@activity('Get Notebook Parameters').output.FirstRow.rawDataPath",
+							"type": "Expression"
+						},
+						"schemaName": {
+							"value": "@activity('Get Notebook Parameters').output.FirstRow.schemaName",
+							"type": "Expression"
+						},
+						"tableName": {
+							"value": "@activity('Get Notebook Parameters').output.firstrow.tableName",
+							"type": "Expression"
+						},
+						"numPartitions": "8"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksFramework",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Get Notebook Parameters",
+				"description": "Retrieve Notebook Parameters for a given Notebook.",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "uspGetNotebookADLS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderStoredProcedureName": "[dbo].[uspGetNotebookParameters]",
+						"storedProcedureParameters": {
+							"NotebookName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().parameters.NotebookName",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					"dataset": {
+						"referenceName": "FrameworkAzureSqlTable",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"NotebookName": {
+				"type": "String",
+				"defaultValue": "Master Notebook Execution"
+			},
+			"NotebookParameterValue": {
+				"type": "String",
+				"defaultValue": "client000000001_Definitive_Ingest"
+			},
+			"NotebookRunDateFolder": {
+				"type": "String"
+			},
+			"NotebookExecutionGroupName": {
+				"type": "String",
+				"defaultValue": "client000000001 Definitive Ingest"
+			},
+			"NotebookSystemPath": {
+				"type": "String",
+				"defaultValue": "Framework/"
+			}
+		},
+		"folder": {
+			"name": "Framework"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

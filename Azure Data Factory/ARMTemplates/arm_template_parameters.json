@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "da-dev-jason-analytics-df-brbwf"
+        },
+        "AzureSqlDatabase_connectionString": {
+            "value": ""
+        },
+        "AzureSQLTSA_connectionString": {
+            "value": ""
+        },
+        "AzureBlobStorage1_connectionString": {
+            "value": ""
+        },
+        "AzureSynapseAnalytics1_connectionString": {
+            "value": ""
+        },
+        "AzureSQLMAPS_connectionString": {
+            "value": ""
+        },
+        "AzureKeyVault_properties_typeProperties_baseUrl": {
+            "value": "https://rsmedpovkvhggd.vault.azure.net/"
+        },
+        "AzureDataLakeStorageGen2_properties_typeProperties_url": {
+            "value": "https://rsmedpovdlhggd.dfs.core.windows.net"
+        },
+        "AzureDataLakeStoreLanding_Binary_properties_typeProperties_fileName": {
+            "value": ""
+        },
+        "AzureDataLakeStoreLanding_Binary_properties_typeProperties_folderPath": {
+            "value": "@concat(pipeline().parameters.ContainerName,activity('uspGetCopyActivitySinkFileToADLS').output.firstRow.CopyActivityDataADLSFolderPath)"
+        },
+        "AzureDataLakeStoreFile_Txt_properties_typeProperties_fileName": {
+            "value": "@dataset().FileName"
+        },
+        "AzureDataLakeStoreFile_Txt_properties_typeProperties_folderPath": {
+            "value": "@dataset().FilePath"
+        },
+        "AzureDataLakeStore_Archive_properties_typeProperties_folderPath": {
+            "value": "@concat(pipeline().parameters.ContainerName,'/Raw/Archive')"
+        },
+        "AzureDataLakeStoreFile_properties_typeProperties_fileName": {
+            "value": "@activity('uspGetCopyActivitySinkSQLToADLS').output.firstRow.CopyActivityDataADLSFileName"
+        },
+        "AzureDataLakeStoreFile_properties_typeProperties_folderPath": {
+            "value": "@activity('uspGetCopyActivitySinkSQLToADLS').output.firstRow.CopyActivityDataADLSFolderPath"
+        }
+    }
+}

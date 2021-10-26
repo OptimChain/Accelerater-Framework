@@ -1,0 +1,20 @@
+{
+	"name": "AzureDatabricksFramework",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://northcentralus.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "DatabricksFrameworkAdminToken"
+			},
+			"existingClusterId": "0708-180137-cols544"
+		}
+	}
+}

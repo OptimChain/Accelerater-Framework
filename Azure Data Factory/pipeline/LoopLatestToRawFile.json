@@ -1,0 +1,259 @@
+{
+	"name": "LoopLatestToRawFile",
+	"properties": {
+		"activities": [
+			{
+				"name": "uspGetNoteBookExecutionList",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "uspLogEventPipeLineStart",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderStoredProcedureName": "uspGetNoteBookExecutionList",
+						"storedProcedureParameters": {
+							"NotebookExecutionGroupName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().parameters.NotebookExecutionGroupName",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					"dataset": {
+						"referenceName": "FrameworkAzureSqlTable",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Databricks Notebook Loop",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "uspGetNoteBookExecutionList",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('uspGetNoteBookExecutionList').output.value",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"batchCount": 5,
+					"activities": [
+						{
+							"name": "Exec latestRawFile",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "LatestRawFile",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"NotebookName": {
+										"value": "@item().Notebookname",
+										"type": "Expression"
+									},
+									"NotebookParameterValue": {
+										"value": "@item().NotebookParameterValue",
+										"type": "Expression"
+									},
+									"NotebookRunDateFolder": {
+										"value": "@pipeline().parameters.NotebookRunDateFolder",
+										"type": "Expression"
+									},
+									"NotebookExecutionGroupName": {
+										"value": "@pipeline().parameters.NotebookExecutionGroupName",
+										"type": "Expression"
+									},
+									"NotebookSystemPath": "Prism/BinService/"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "uspLogEventPipeLineStart",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderStoredProcedureName": "uspLogEventPipeLineStart",
+						"storedProcedureParameters": {
+							"DataFactoryName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().DataFactory",
+									"type": "Expression"
+								}
+							},
+							"ParentPipeLineExecutionLogKey": {
+								"type": "Int64",
+								"value": {
+									"value": "0",
+									"type": "Expression"
+								}
+							},
+							"PipeLineName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().Pipeline",
+									"type": "Expression"
+								}
+							},
+							"PipeLineRunId": {
+								"type": "Guid",
+								"value": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
+							},
+							"PipeLineStartDate": {
+								"type": "DateTime",
+								"value": {
+									"value": "@utcnow()",
+									"type": "Expression"
+								}
+							},
+							"PipeLineTriggerID": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().TriggerId",
+									"type": "Expression"
+								}
+							},
+							"PipeLineTriggerName": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().TriggerName",
+									"type": "Expression"
+								}
+							},
+							"PipeLineTriggerType": {
+								"type": "String",
+								"value": {
+									"value": "@pipeline().TriggerType",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					"dataset": {
+						"referenceName": "FrameworkAzureSqlTable",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "uspLogEventPipeLineEnd",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Databricks Notebook Loop",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "uspLogEventPipeLineEnd",
+					"storedProcedureParameters": {
+						"PipeLineExecutionGroupName": {
+							"value": {
+								"value": "@pipeline().parameters.PipeLineExecutionGroupName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PipeLineExecutionLogKey": {
+							"value": {
+								"value": "@activity('uspLogEventPipeLineStart').output.firstRow.PipeLineExecutionLogKey",
+								"type": "Expression"
+							},
+							"type": "Int64"
+						},
+						"PipeLineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PipeLineStatus": {
+							"value": {
+								"value": "SUCCEEDED",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"NotebookExecutionGroupName": {
+				"type": "String",
+				"defaultValue": "Notebook Binservice LatestRaw"
+			},
+			"PipeLineExecutionGroupName": {
+				"type": "String",
+				"defaultValue": "masterPrism"
+			},
+			"NotebookRunDateFolder": {
+				"type": "String"
+			},
+			"NotebookSystemPath": {
+				"type": "String",
+				"defaultValue": "Prism/BinService/"
+			}
+		},
+		"folder": {
+			"name": "Framework"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

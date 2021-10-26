@@ -1,0 +1,11 @@
+{
+	"name": "AzureKeyVault",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://da-dev-dc01-mgt-kv-eftwi.vault.azure.net/"
+		}
+	}
+}
