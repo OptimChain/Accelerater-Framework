@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dbsName": {
+      "value": "da-dev-wus2-analytics-dbs"
+    },
+    "dwName": {
+      "value": "da-dev-wus2-analytics-dw"
+    },
+    "dbName": {
+      "value": "da-dev-wus2-analytics-db"
+    },
+    "location": {
+      "value": "westus2"
+    },
+    "tags": {
+      "value": {
+        "Group Name": "Data and Analytics",
+        "Budget Code": "",
+        "Project ID": "",
+        "Deployed By": "Daniel.Nayberger@bartelldrugs.onmicrosoft.com",
+        "SL": "1 High Priority",
+        "Privacy Level": "1 Confidential",
+        "Internal Owner": "",
+        "Support Contact": ""
+      }
+    }
+  }
+}

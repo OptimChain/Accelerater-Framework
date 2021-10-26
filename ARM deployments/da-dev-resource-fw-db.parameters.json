@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "value": "da-dev-wus2-analytics-dbs"
+    },
+    "databaseName": {
+      "value": "da-dev-wus2-analytics-fw-db"
+    },
+    "sqlAdministratorLogin": {
+      "value": "BartellAdmin",
+      "metadata": {
+        "description": "The administrator username of the SQL Server."
+      }
+    },
+    "sqlAdministratorLoginPassword": {
+      "value": ";nn9fYDf+MKU$bRE",
+      "metadata": {
+        "description": "The administrator password of the SQL Server."
+      }
+    },
+    "tags": {
+      "value": {
+        "Group Name": "Data and Analytics",
+        "Budget Code": "",
+        "Project ID": "",
+        "Deployed By": "Daniel.Nayberger@bartelldrugs.onmicrosoft.com",
+        "SL": "1 High Priority",
+        "Privacy Level": "1 Confidential",
+        "Internal Owner": "",
+        "Support Contact": ""
+      }
+    }
+  }
+}
