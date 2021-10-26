@@ -6,11 +6,11 @@
 
 $ApplicationPrefix = "da-tst-"
 $GroupPrefix = "AzureAD-da-tst-"
-$VaultName = 'da-dev-jason-test'
-$rgName = 'Bartell Drugs DA Test'
-$SQLAnalyticsDatabaseName = 'da-tst-wus2-analytics-kv'
+$VaultName = 'da-dev-jason-analytics'
+$rgName = 'da-dev-wus2-analytics-rg'
+$SQLAnalyticsDatabaseName = 'da-tst-wus2-analytics-db'
 
-$OutputFile = 'C:\Users\Jason.Bian\Desktop\Solution\Powershell\deployments\DatabricksSecretsContainer_' + $containerName + '.txt'
+$OutputFile = 'C:\Users\Jason.Bian\Desktop\Solution\Powershell\ARM deployments\DatabricksSecretsContainer_' + $containerName + '.txt'
 
 $ADLSGen2StorageAccountName = (Get-AzKeyVaultSecret -vaultName $VaultName -name "ADLSName").SecretValueText
 $ADLSTenantId = (Get-AzKeyVaultSecret -vaultName $VaultName -name "ADLSTenantID").SecretValueText

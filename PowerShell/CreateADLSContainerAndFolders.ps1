@@ -3,7 +3,7 @@
 Set-AzContext -Subscriptionid "57b50573-d245-486d-b3b3-7a5e83dacbb8"
 
 $VaultName = 'da-dev-jason-analytics'
-$ContainerName  = ''
+$ContainerName  = 'cilent002'
 
 $StorageAccountName = Get-AzKeyVaultSecret -vaultName $VaultName -name "ADLSName" -AsPlainText
 $AccessKey = Get-AzKeyVaultSecret -vaultName $VaultName -name "ADLSStorageAccountKey" -AsPlainText
@@ -12,7 +12,7 @@ $AccessKey = Get-AzKeyVaultSecret -vaultName $VaultName -name "ADLSStorageAccoun
 # https://docs.microsoft.com/en-us/rest/api/storageservices/datalakestoragegen2/path/create
  
 $ContainerName = $ContainerName.ToLower() 
-$BadRecords = "/BadRecords"C
+$BadRecords = "/BadRecords"
 $Landing = "/Landing"
 $Raw = "/Raw"
 $Query = "/Query"
