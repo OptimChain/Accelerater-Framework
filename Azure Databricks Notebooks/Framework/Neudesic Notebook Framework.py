@@ -1,7 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Neudesic Notebook Framework
-# MAGIC ###### Author: Eddie Edgeworth 9/10/18
 # MAGIC 
 # MAGIC Clone this notebook to create a notebook that utilizes the Neudesic Databricks framework.  Replace this cell with documentation of what this notebook does. 
 # MAGIC 

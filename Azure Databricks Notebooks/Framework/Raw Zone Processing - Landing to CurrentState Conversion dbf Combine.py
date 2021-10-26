@@ -1,7 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Raw Zone Processing - Landing to CurrentState Conversion dbf Combine
-# MAGIC ###### Author: Ranga Bondada 4/30/21
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Supply the parameters above and run the notebook.  

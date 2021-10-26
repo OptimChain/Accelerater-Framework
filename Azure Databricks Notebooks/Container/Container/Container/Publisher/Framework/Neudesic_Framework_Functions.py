@@ -8,8 +8,6 @@
 # MAGIC %md
 # MAGIC 
 # MAGIC # Neudesic_Framework_Functions
-# MAGIC ###### Author: Eddie Edgeworth 9/7/18
-# MAGIC ###### Modified for CLA: Mike Sherrill 6/17/19
 # MAGIC 
 # MAGIC 
 # MAGIC This notebook contains all the functions and utilities used by the Neudesic Framework.  

@@ -1,8 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Raw Zone Processing - Landing to Raw Conversion Split_
-# MAGIC ###### Author: Rohit Srivastava 7/10/19
-# MAGIC ###### Updated to split filenames:  Mike Sherrill 7/24/19
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Supply the parameters above and run the notebook.  

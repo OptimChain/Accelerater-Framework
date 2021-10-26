@@ -2,8 +2,6 @@
 # MAGIC %md
 # MAGIC 
 # MAGIC # Infer Schema
-# MAGIC ###### Author: Eddie Edgeworth 9/6/18
-# MAGIC ###### Modifed for CLA - Mike Sherrill 6/19/19
 # MAGIC 
 # MAGIC The objective of this notebook is to obtain the schema for a supplied data lake path and save it to the ** /schemas ** folder of the data lake so that it can be retrieved for use in subsequent imports of the table.  When Data Lake files are read into databricks, by default it will infer the schema, but this comes at the expense of extra Spark jobs.  
 # MAGIC 

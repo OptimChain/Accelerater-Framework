@@ -3,7 +3,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Merge FCT_Store_Fuel_Tank
-# MAGIC ###### Author: Ranga Bondada 03/13/2020
 # MAGIC 
 # MAGIC Data Lake pattern for tables that are staged and merged into the final enriched version.  Takes a file from the raw data path and overwrites the table in the Query zone.      
 # MAGIC 

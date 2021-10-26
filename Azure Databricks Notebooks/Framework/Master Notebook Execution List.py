@@ -1,7 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Master Notebook Execution List
-# MAGIC ###### Author: Eddie Edgeworth 4/4/19
 # MAGIC 
 # MAGIC 
 # MAGIC #### Usage

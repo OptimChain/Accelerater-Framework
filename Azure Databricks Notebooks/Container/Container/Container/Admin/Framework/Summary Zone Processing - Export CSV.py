@@ -5,7 +5,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Summary Zone Table
-# MAGIC ###### Author: Eddie Edgeworth 1/3/19
 # MAGIC 
 # MAGIC This notebook takes a Query Zone Table as input and creates a .csv file in the Summary Zone.    
 # MAGIC 

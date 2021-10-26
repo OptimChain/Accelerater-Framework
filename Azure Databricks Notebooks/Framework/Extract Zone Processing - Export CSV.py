@@ -1,7 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Extract Zone CSV
-# MAGIC ###### Author: Mike Sherrill 7/16/2019
 # MAGIC 
 # MAGIC This notebook takes a Enhanced Zone Table as input and creates a .csv file in the Extract Zone (for PowerBI consumption)
 # MAGIC 

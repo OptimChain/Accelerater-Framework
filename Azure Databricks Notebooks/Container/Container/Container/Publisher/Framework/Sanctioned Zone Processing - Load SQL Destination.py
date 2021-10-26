@@ -6,9 +6,7 @@
 # MAGIC  
 # MAGIC  
 # MAGIC %md
-# MAGIC # Sanctioned Zone Processing - Load SQL Destination
-# MAGIC ###### Author: Eddie Edgeworth 4/8/19
-# MAGIC ###### Modified for CLA:  Mike Sherrill 9/23/19      
+# MAGIC # Sanctioned Zone Processing - Load SQL Destination   
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Supply the parameters above and run the notebook.  

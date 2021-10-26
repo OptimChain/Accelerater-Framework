@@ -3,7 +3,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Append Engagements
-# MAGIC ###### Author: Mike Sherrill 01/25/2021
 # MAGIC 
 # MAGIC Data Lake pattern for tables that are staged and merged into the final enriched version.  Takes a file from the raw data path and overwrites the table in the Query zone.      
 # MAGIC 

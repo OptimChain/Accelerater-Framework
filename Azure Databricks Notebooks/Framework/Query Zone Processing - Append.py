@@ -4,8 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Append
-# MAGIC ###### Author: Eddie Edgeworth 4/5/19
-# MAGIC ###### Modified for CLA: Mike Sherrill 6/20/19
 # MAGIC 
 # MAGIC Data Lake pattern for immutable, append-only data.  Takes a file from the raw data path and appends it to the table in the Query zone.      
 # MAGIC 

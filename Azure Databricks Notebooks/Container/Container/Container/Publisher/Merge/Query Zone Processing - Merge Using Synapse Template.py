@@ -3,7 +3,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Merge Using Snapse Template
-# MAGIC ###### Author: Mike Sherrill 03/03/2020
 # MAGIC 
 # MAGIC Data Lake pattern for tables that are staged and merged into the final enriched version.  Takes a file from the raw data path and overwrites the table in the Query zone.      
 # MAGIC 

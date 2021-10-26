@@ -5,8 +5,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Cluster Init Script Setup
-# MAGIC ###### Author: Eddie Edgeworth 4/17/19
-# MAGIC ###### Modified for CLA: Mike Sherrill 6/12/19
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Create a cluster init script for the pyodbc python library which is required to communicate with the framework database

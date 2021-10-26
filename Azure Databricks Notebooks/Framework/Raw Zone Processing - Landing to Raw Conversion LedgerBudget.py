@@ -4,7 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Raw Zone Processing - Landing to Raw Conversion LedgerBudget
-# MAGIC ###### Author: Shubham S 12/24/2020
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Supply the parameters above and run the notebook.  

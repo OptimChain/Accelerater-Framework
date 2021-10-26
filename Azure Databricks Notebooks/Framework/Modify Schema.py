@@ -2,7 +2,6 @@
 # MAGIC %md
 # MAGIC 
 # MAGIC # Modify Schema
-# MAGIC ###### Author: Eddie Edgeworth 4/23/19
 # MAGIC 
 # MAGIC #### Example:
 # MAGIC 

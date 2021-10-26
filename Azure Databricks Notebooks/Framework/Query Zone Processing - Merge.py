@@ -4,7 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Merge
-# MAGIC ###### Author: Eddie Edgeworth 4/5/19
 # MAGIC 
 # MAGIC Data Lake pattern for tables with change feeds of new or updated records.  Takes a file from the raw data path and applies the updates to the Query zone.      
 # MAGIC 

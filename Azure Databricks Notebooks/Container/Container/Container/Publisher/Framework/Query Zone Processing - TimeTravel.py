@@ -6,8 +6,6 @@
 # MAGIC  
 # MAGIC  
 # MAGIC %md
-# MAGIC # Query Zone Processing - Time Travel
-# MAGIC ###### Author: Mike Sherrill 10/22/19
 # MAGIC 
 # MAGIC Example Time Travel for Delta Lake Tables
 # MAGIC 

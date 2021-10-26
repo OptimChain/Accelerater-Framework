@@ -6,8 +6,6 @@
 # MAGIC  
 # MAGIC  
 # MAGIC %md
-# MAGIC # Sanctioned Zone Processing - Load Synapse DW
-# MAGIC ###### Author: Mike Sherrill 9/10/19
 # MAGIC 
 # MAGIC 
 # MAGIC #### Usage

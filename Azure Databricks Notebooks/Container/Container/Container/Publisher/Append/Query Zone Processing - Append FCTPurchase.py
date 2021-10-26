@@ -3,7 +3,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Append FCTPurchase
-# MAGIC ###### Author: Chaitanya Badam 06/01/2020
 # MAGIC 
 # MAGIC Data Lake pattern for tables that are staged and merged into the final enriched version.  Takes a file from the raw data path and overwrites the table in the Query zone.      
 # MAGIC 

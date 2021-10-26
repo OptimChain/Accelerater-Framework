@@ -5,7 +5,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Remove Stuck Hive Table
-# MAGIC ###### Author: Mike Sherrill 5/29/2020
 # MAGIC 
 # MAGIC Data Lake pattern for tables with change feeds of new or updated records.  Takes a file from the raw data path and applies the updates to the Query zone.      
 # MAGIC 

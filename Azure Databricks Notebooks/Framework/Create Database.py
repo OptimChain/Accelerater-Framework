@@ -1,7 +1,6 @@
 # MAGIC  
 # MAGIC %md
-# MAGIC # Create Container Database
-# MAGIC ###### Author: Mike Sherrill 7/25/19   
+# MAGIC # Create Container Database 
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Creates Container Database

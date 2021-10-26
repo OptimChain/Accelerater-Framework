@@ -6,8 +6,6 @@
 # MAGIC  
 # MAGIC  
 # MAGIC %md
-# MAGIC # Query Zone Processing - Enrich Combine
-# MAGIC ###### Author: Mike Sherrill 7/25/19
 # MAGIC 
 # MAGIC This notebook combines Spark Tables into a single Query Zone (enriched) delta lake table.
 # MAGIC 

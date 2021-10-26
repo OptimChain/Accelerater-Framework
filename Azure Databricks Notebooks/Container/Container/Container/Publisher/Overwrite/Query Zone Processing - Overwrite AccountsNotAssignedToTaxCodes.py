@@ -2,7 +2,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Overwrite AccountsNotAssignedToTaxCodes
-# MAGIC ###### Author: Mike Sherrill 6/21/19
 # MAGIC 
 # MAGIC Data Lake pattern for master data or small tables that can be overwritten every time.  Takes a file from the raw data path and overwrites the table in the Query zone.      
 # MAGIC 

@@ -6,7 +6,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Enrich Analytics Desktop Usage
-# MAGIC ###### Author: Mike Sherrill 11/7/19
 # MAGIC 
 # MAGIC This notebook creates FactDesktopUsage.
 # MAGIC 

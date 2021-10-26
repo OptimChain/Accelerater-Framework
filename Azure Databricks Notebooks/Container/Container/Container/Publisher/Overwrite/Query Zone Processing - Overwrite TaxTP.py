@@ -4,7 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Overwrite DIMProduct
-# MAGIC ###### Author: Ranga Bondada 05/25/2020
 # MAGIC 
 # MAGIC Data Lake pattern for tables with change feeds of new or updated records.  Takes a file from the raw data path and applies the updates to the Query zone.      
 # MAGIC 

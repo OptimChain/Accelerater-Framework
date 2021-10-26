@@ -7,8 +7,6 @@
 # MAGIC 
 # MAGIC # Secrets-Databricks-Container
 # MAGIC 
-# MAGIC ###### Author: Mike Sherrill 7/1/19
-# MAGIC 
 # MAGIC Run this notebook to get the secrets from Databricks Secret Scopes saved to both Python and Scala variables. You can run this notebook from another notebook and use these variables by using the following %run magic command from that notebook: 
 # MAGIC 
 # MAGIC %run /Framework/Secrets-Databricks-Container

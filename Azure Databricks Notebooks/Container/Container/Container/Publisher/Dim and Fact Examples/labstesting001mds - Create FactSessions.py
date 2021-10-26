@@ -6,7 +6,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # labstesting001mds - Create FactSessions
-# MAGIC ###### Author: Mike Sherrill 11/13/19
 # MAGIC 
 # MAGIC This notebook is used to create the FactSessions from spark tables created during query zone enrich processing.  It creates spark tables and writes to the enriched zone.  
 # MAGIC #### Usage

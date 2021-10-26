@@ -6,8 +6,6 @@
 # MAGIC  
 # MAGIC  
 # MAGIC %md
-# MAGIC # Optimize Delta Lake
-# MAGIC ###### Author:  Mike Sherrill 7/08/19
 # MAGIC 
 # MAGIC Data Lake pattern to Optimize, and optionally Vacuum Delta Lake tables (note: if you specify Vacuum=True; previous versions and time travel will be lost)
 # MAGIC 

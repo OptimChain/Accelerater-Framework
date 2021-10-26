@@ -1,8 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC 
-# MAGIC # Neudesic_Purview_Functions
-# MAGIC ###### Author:  Mike Sherrill 7/8/21
 # MAGIC 
 # MAGIC 
 # MAGIC This notebook contains all the functions and utilities used by the Neudesic Framework.  

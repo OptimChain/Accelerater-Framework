@@ -3,7 +3,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Raw Zone Processing - Landing to Raw Conversion InventoryBudget
-# MAGIC ###### Author: Mike Sherrill 05/29/2020
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC Supply the parameters above and run the notebook.  

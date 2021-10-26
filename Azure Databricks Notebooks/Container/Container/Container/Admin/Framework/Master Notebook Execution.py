@@ -5,8 +5,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Master Notebook Execution
-# MAGIC ###### Author: Eddie Edgeworth 4/4/19
-# MAGIC ###### Modified for CLA: Mike Sherrill 6/17/19
 # MAGIC 
 # MAGIC 
 # MAGIC 

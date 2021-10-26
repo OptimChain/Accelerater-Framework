@@ -4,8 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Append Delta Lake
-# MAGIC ###### Author: Eddie Edgeworth 4/6/19
-# MAGIC ###### Modified for CLA - Mike Sherrill 6/19/19
 # MAGIC 
 # MAGIC Data Lake pattern for tables with change feeds of new or updated records.  Takes a file from the raw data path and applies the updates to the Query zone.      
 # MAGIC 
