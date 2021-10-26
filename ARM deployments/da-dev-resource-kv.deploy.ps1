@@ -1,12 +1,10 @@
 ﻿# -----------------------------------------------------------------------
-# Bartell Drugs  - Azure Deployment Automation
+Azure Deployment Automation
 #   Azure Platform
 #   Enterprise Services dev - WUS2 Development Key vault
 #   Development Environment Deployment
-#
-# 18 may 2020
-# Daniel Nayberger
-# Neudesic, LLC
+
+
 # -----------------------------------------------------------------------
 
 #Ensure Subscription is set to Bartell Drugs da-dev Subscription

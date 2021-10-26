@@ -1,8 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Overwrite
-# MAGIC ###### Author: Eddie Edgeworth 4/5/19
-# MAGIC ###### Modified for CLA - Mike Sherrill 6/19/19
 # MAGIC 
 # MAGIC Data Lake pattern for master data or small tables that can be overwritten every time.  Takes a file from the raw data path and overwrites the table in the Query zone.      
 # MAGIC 

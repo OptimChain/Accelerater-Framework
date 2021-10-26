@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "dbsName": {
-      "value": "da-dev-wus2-analytics-dbs"
+      "value": "da-dev-template-analytics-dbs"
     },
     "dwName": {
-      "value": "da-dev-wus2-analytics-dw"
+      "value": "da-dev-template-analytics-dw"
     },
     "dbName": {
-      "value": "da-dev-wus2-analytics-db"
+      "value": "da-dev-template-analytics-db"
     },
     "location": {
       "value": "westus2"
@@ -19,7 +19,7 @@
         "Group Name": "Data and Analytics",
         "Budget Code": "",
         "Project ID": "",
-        "Deployed By": "Daniel.Nayberger@bartelldrugs.onmicrosoft.com",
+        "Deployed By": "",
         "SL": "1 High Priority",
         "Privacy Level": "1 Confidential",
         "Internal Owner": "",

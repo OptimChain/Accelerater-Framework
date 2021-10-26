@@ -4,7 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Query Zone Processing - Overwrite Delta Lake from Gzip
-# MAGIC ###### Author:  Mike Sherrill 03/19/20
 # MAGIC 
 # MAGIC Data Lake pattern for tables with change feeds of new or updated records.  Takes a file from the raw data path and applies the updates to the Query zone.      
 # MAGIC 

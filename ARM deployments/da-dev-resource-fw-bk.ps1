@@ -1,15 +1,11 @@
 # -----------------------------------------------------------------------
-# Bartell Drugs  - Azure Deployment Automation
+Azure Deployment Automation
 #   Azure Platform
 #   BI and Analytics - Framework Databrick
 #   Development Environment Deployment
-#
-# 23 August 2019
-# Chris Kurt
-# Neudesic, LLC
 # -----------------------------------------------------------------------
 
-#Ensure Subscription is set to Bartell Drugs Development Instance
+#Ensure Subscription is set to Development Instance
 Set-AzContext -Subscriptionid "a9736b54-71f3-4a19-bd5b-d3979b8ce04f"
 
 $filePath = "\"

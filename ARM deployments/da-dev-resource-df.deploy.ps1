@@ -1,12 +1,9 @@
 # -----------------------------------------------------------------------
-# Bartell Drugs  - Azure Deployment Automation
+#Azure Deployment Automation
 #   Azure Platform
 #   BI and Analytics - Data and Analytics Data Factory
 #   Development Environment Deployment
 #
-# 25 August 2019
-# Chris Kurt
-# Neudesic, LLC
 # -----------------------------------------------------------------------
 
 #******************************************************************************
@@ -42,7 +39,7 @@ if (!$resourceGroup) {
             "Group Name"      = ""; `
             "Budget Code"     = ""; `
             "Project ID"      = ""; `
-            "Deployed By"     = "Daniel.Nayberger@bartelldrugs.onmicrosoft.com"; `
+            "Deployed By"     = "Template@template.onmicrosoft.com"; `
             "Internal Owner"  = ""; `
             "Support Contact" = ""; `
             "SL"              = "1 High Priority"; `

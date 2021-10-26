@@ -1,8 +1,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Framework Hydration Review
-# MAGIC ###### Author: Eddie Edgeworth 4/12/18  
-# MAGIC ###### Modifed for CLA: Mike Sherrill 6/20/19
 # MAGIC 
 # MAGIC #### Usage
 # MAGIC 

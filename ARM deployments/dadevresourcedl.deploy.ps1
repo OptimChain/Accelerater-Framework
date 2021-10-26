@@ -1,12 +1,8 @@
 # -----------------------------------------------------------------------
-# Bartell Drugs  - Azure Deployment Automation
+Azure Deployment Automation
 #   Azure Platform
 #   BI and Analytics - Data Lake Gen 2
 #   Development Environment Deployment
-#
-# 22 August 2019
-# Chris Kurt
-# Neudesic, LLC
 # -----------------------------------------------------------------------
 
 function Get-UniqueString ([string]$id, $length = 4) {

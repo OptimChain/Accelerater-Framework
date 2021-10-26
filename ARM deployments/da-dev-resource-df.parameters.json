@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "dataFactoryName": {
-      "value": "da-dev-wus2-analytics-df"
+      "value": "da-dev-template-df"
     },
     "location": {
       "value": "westus2"

@@ -9,7 +9,7 @@
       "value": "da-dev-wus2-analytics-fw-db"
     },
     "sqlAdministratorLogin": {
-      "value": "BartellAdmin",
+      "value": "TemplateAdmin",
       "metadata": {
         "description": "The administrator username of the SQL Server."
       }
@@ -25,7 +25,7 @@
         "Group Name": "Data and Analytics",
         "Budget Code": "",
         "Project ID": "",
-        "Deployed By": "Daniel.Nayberger@bartelldrugs.onmicrosoft.com",
+        "Deployed By": "Template@template.onmicrosoft.com",
         "SL": "1 High Priority",
         "Privacy Level": "1 Confidential",
         "Internal Owner": "",

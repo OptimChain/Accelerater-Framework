@@ -4,8 +4,6 @@
 # MAGIC  
 # MAGIC %md
 # MAGIC # Load Pattern 3 - Delta Processing FULL REFRESH
-# MAGIC ###### Author: Eddie Edgeworth 1/13/19
-# MAGIC ###### Modified for CLA: Mike Sherrill 6/20/19
 # MAGIC 
 # MAGIC Data Lake pattern for tables with change feeds of new or updated records.  Takes a file from the raw data path and applies the updates to the Query zone.      
 # MAGIC 

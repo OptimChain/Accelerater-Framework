@@ -1,12 +1,9 @@
 # -----------------------------------------------------------------------
-# Bartell Drugs  - Azure Deployment Automation
+Azure Deployment Automation
 #   Azure Platform
 #   BI and Analytics - Framework Database and Server
 #   Development Environment Deployment
 #
-# 23 August 2019
-# Chris Kurt
-# Neudesic, LLC
 # -----------------------------------------------------------------------
 
 function Get-UniqueString ([string]$id, $length = 5) {
