@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------
-Azure Deployment Automation
+# Azure Deployment Automation
 #   Azure Platform
 #   BI and Analytics - Framework Database and Server
 #   Development Environment Deployment
@@ -12,13 +12,14 @@ function Get-UniqueString ([string]$id, $length = 5) {
 }
 #******************************************************************************
 #Ensure Subscription is set to Bartell Drugs da-dev Subscription
-$subscriptionId = "a9736b54-71f3-4a19-bd5b-d3979b8ce04f"
+$subscriptionId = "57b50573-d245-486d-b3b3-7a5e83dacbb8"
 Set-AzContext -Subscriptionid $subscriptionId
 
-$filePath = "\"
+$filePath = "C:\Users\Jason.Bian\Documents\GitHub\Accelerater-Framework\ARM deployments\"
 
-$resourceName = "da-dev-wus2-analytics-fw-db"
-$serverName = "da-dev-wus2-analytics-dbs"
+$resourceName = "da-dev-resource-fw-db"
+$serverName = "da-dev-resource-dbs"
+
 $uniqueName = $serverName + "-" + (Get-UniqueString -id $(Get-AzResourceGroup $resourceGroupName).ResourceID)
 
 $templateFilePath = $filePath + $resourceName + ".template.json"

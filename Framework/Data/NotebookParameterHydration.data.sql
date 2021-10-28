@@ -1,0 +1,179 @@
+﻿DECLARE @ContainerName VARCHAR(255) = 'client000000001';
+DECLARE @DataFactoryName VARCHAR(255) = 'DataLakeTestPOCAzureDataFactory';
+
+DECLARE @ContainerExecutionGroupName VARCHAR(255) = 'client000000001 Ingest';
+DECLARE @NotebookExecutionGroupName VARCHAR(255) = 'client000000001 Data Ingest';
+
+EXEC dbo.uspInsertNotebookParaclient000000001s
+ @NotebookName='Dataset1_Ingest'
+,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+,@DataFactoryName=@DataFactoryName
+,@ContainerName=@ContainerName
+,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+,@NotebookOrder=10
+,@NumPartitions = 16
+,@ExternalDataPath = '' --do not include date partition folders here
+,@FileExtension = 'txt'
+,@Delimiter = ','
+,@HasHeader = 0
+,@RawZoneNotebookPath = '/Framework/Raw Zone Processing - Batch'
+,@RawDataPath = '/Raw/StateAverages/2019'
+,@QueryZoneSchemaName = 'Dataset1'
+,@QueryZoneTableName = 'Dataset1' 
+,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+,@TimestampColumns = ''	  --required for Merge Loading Pattern
+,@QueryZoneNotebookPath = '/Framework/Query Zone Processing - Append Databricks Delta'
+,@SummaryZoneNotebookPath = ''
+,@SummaryZoneRemoveHDFSOutputCommitterFiles = ''
+,@SummaryZoneRenameSummaryOutputFile = ''
+,@SanctionedZoneNotebookPath = '';
+
+SET @ContainerExecutionGroupName = 'client000000001 Enrich';
+SET @NotebookExecutionGroupName = 'client000000001 Data Enrich';
+
+EXEC dbo.uspInsertNotebookParaclient000000001s
+ @NotebookName='Dataset1_Enrich'
+,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+,@DataFactoryName=@DataFactoryName
+,@ContainerName=@ContainerName
+,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+,@NotebookOrder=10
+,@NumPartitions = 16
+,@ExternalDataPath = '' --do not include date partition folders here
+,@FileExtension = ''
+,@Delimiter = ''
+,@HasHeader = 0
+,@RawZoneNotebookPath = ''
+,@RawDataPath = ''
+,@QueryZoneSchemaName = ''
+,@QueryZoneTableName = '' 
+,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+,@TimestampColumns = ''	  --required for Merge Loading Pattern
+,@QueryZoneNotebookPath = '/Camp Verde/client000000001 Data Enrich'
+,@SummaryZoneNotebookPath = ''
+,@SummaryZoneRemoveHDFSOutputCommitterFiles = ''
+,@SummaryZoneRenameSummaryOutputFile = ''
+,@SanctionedZoneNotebookPath = '';
+
+SET @ContainerExecutionGroupName = 'client000000001 Present';
+SET @NotebookExecutionGroupName = 'client000000001 Data Present';
+
+EXEC dbo.uspInsertNotebookParaclient000000001s
+ @NotebookName='DevicesWithIncompleteDailyReadings_Summary'
+,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+,@DataFactoryName=@DataFactoryName
+,@ContainerName=@ContainerName
+,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+,@NotebookOrder=10
+,@NumPartitions = 16
+,@ExternalDataPath = '' --do not include date partition folders here
+,@FileExtension = ''
+,@Delimiter = ''
+,@HasHeader = 0
+,@RawZoneNotebookPath = ''
+,@RawDataPath = ''
+,@QueryZoneSchemaName = ''
+,@QueryZoneTableName = 'DevicesWithIncompleteDailyReadings' 
+,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+,@TimestampColumns = ''	  --required for Merge Loading Pattern
+,@QueryZoneNotebookPath = ''
+,@SummaryZoneNotebookPath = '/Framework/Summary Zone Processing - Export CSV'
+,@SummaryZoneRemoveHDFSOutputCommitterFiles = '1'
+,@SummaryZoneRenameSummaryOutputFile = '1'
+,@SanctionedZoneNotebookPath = '';
+
+--EXEC dbo.uspInsertNotebookParaclient000000001s
+-- @NotebookName='dimDate_Sanctioned'
+--,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+--,@DataFactoryName=@DataFactoryName
+--,@ContainerName=@ContainerName
+--,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+--,@NotebookOrder=10
+--,@NumPartitions = 16
+--,@ExternalDataPath = '' --do not include date partition folders here
+--,@FileExtension = ''
+--,@Delimiter = ''
+--,@HasHeader = 0
+--,@RawZoneNotebookPath = ''
+--,@RawDataPath = ''
+--,@QueryZoneSchemaName = 'dbo'
+--,@QueryZoneTableName = 'dimDate' 
+--,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+--,@TimestampColumns = ''	  --required for Merge Loading Pattern
+--,@QueryZoneNotebookPath = ''
+--,@SummaryZoneNotebookPath = ''
+--,@SummaryZoneRemoveHDFSOutputCommitterFiles = ''
+--,@SummaryZoneRenameSummaryOutputFile = ''
+--,@SanctionedZoneNotebookPath = '/Framework/Sanctioned Zone Processing - Load SQL Destination';
+
+--EXEC dbo.uspInsertNotebookParaclient000000001s
+-- @NotebookName='dimTime_Sanctioned'
+--,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+--,@DataFactoryName=@DataFactoryName
+--,@ContainerName=@ContainerName
+--,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+--,@NotebookOrder=10
+--,@NumPartitions = 16
+--,@ExternalDataPath = '' --do not include date partition folders here
+--,@FileExtension = ''
+--,@Delimiter = ''
+--,@HasHeader = 0
+--,@RawZoneNotebookPath = ''
+--,@RawDataPath = ''
+--,@QueryZoneSchemaName = 'dbo'
+--,@QueryZoneTableName = 'dimTime' 
+--,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+--,@TimestampColumns = ''	  --required for Merge Loading Pattern
+--,@QueryZoneNotebookPath = ''
+--,@SummaryZoneNotebookPath = ''
+--,@SummaryZoneRemoveHDFSOutputCommitterFiles = ''
+--,@SummaryZoneRenameSummaryOutputFile = ''
+--,@SanctionedZoneNotebookPath = '/Framework/Sanctioned Zone Processing - Load SQL Destination';
+
+--EXEC dbo.uspInsertNotebookParaclient000000001s
+-- @NotebookName='dimDevice_Sanctioned'
+--,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+--,@DataFactoryName=@DataFactoryName
+--,@ContainerName=@ContainerName
+--,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+--,@NotebookOrder=10
+--,@NumPartitions = 16
+--,@ExternalDataPath = '' --do not include date partition folders here
+--,@FileExtension = ''
+--,@Delimiter = ''
+--,@HasHeader = 0
+--,@RawZoneNotebookPath = ''
+--,@RawDataPath = ''
+--,@QueryZoneSchemaName = 'dbo'
+--,@QueryZoneTableName = 'dimDevice' 
+--,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+--,@TimestampColumns = ''	  --required for Merge Loading Pattern
+--,@QueryZoneNotebookPath = ''
+--,@SummaryZoneNotebookPath = ''
+--,@SummaryZoneRemoveHDFSOutputCommitterFiles = ''
+--,@SummaryZoneRenameSummaryOutputFile = ''
+--,@SanctionedZoneNotebookPath = '/Framework/Sanctioned Zone Processing - Load SQL Destination';
+
+--EXEC dbo.uspInsertNotebookParaclient000000001s
+-- @NotebookName='FactDataset1_Sanctioned'
+--,@NotebookExecutionGroupName=@NotebookExecutionGroupName
+--,@DataFactoryName=@DataFactoryName
+--,@ContainerName=@ContainerName
+--,@ContainerExecutionGroupName=@ContainerExecutionGroupName
+--,@NotebookOrder=10
+--,@NumPartitions = 16
+--,@ExternalDataPath = '' --do not include date partition folders here
+--,@FileExtension = ''
+--,@Delimiter = ''
+--,@HasHeader = 0
+--,@RawZoneNotebookPath = ''
+--,@RawDataPath = ''
+--,@QueryZoneSchemaName = 'dbo'
+--,@QueryZoneTableName = 'FactDataset1ToLoad' 
+--,@PrimaryKeyColumns = ''  --required for Databricks Delta and Merge Loading Patterns
+--,@TimestampColumns = ''	  --required for Merge Loading Pattern
+--,@QueryZoneNotebookPath = ''
+--,@SummaryZoneNotebookPath = ''
+--,@SummaryZoneRemoveHDFSOutputCommitterFiles = ''
+--,@SummaryZoneRenameSummaryOutputFile = ''
+--,@SanctionedZoneNotebookPath = '/Framework/Sanctioned Zone Processing - Load SQL Destination';

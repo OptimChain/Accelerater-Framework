@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {
-      "value": "da-dev-wus2-analytics-dbs"
+      "value": "da-dev-resource-dbs"
     },
     "databaseName": {
-      "value": "da-dev-wus2-analytics-fw-db"
+      "value": "da-dev-wus2-resource-fw-db"
     },
     "sqlAdministratorLogin": {
       "value": "TemplateAdmin",
