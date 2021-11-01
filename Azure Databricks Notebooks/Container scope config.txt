@@ -42,7 +42,7 @@ databricks secrets put --scope cilent001contribute --key SQLFrameworkServerName 
 databricks secrets put --scope cilent001contribute --key SQLFrameworkDatabaseName --string-value $SQLFrameworkDatabaseName
 databricks secrets put --scope cilent001contribute --key SQLFrameworkUserName --string-value $SQLFrameworkUserName
 databricks secrets put --scope cilent001contribute --key SQLFrameworkPassword --string-value $SQLFrameworkPassword
-databricks secrets put --scope cilent001contribute --key SQLAnalyticsDatabaseName --string-value da-tst-wus2-analytics-kv $SQLAnalyticsDatabaseName
+databricks secrets put --scope cilent001contribute --key SQLAnalyticsDatabaseName --string-value $SQLAnalyticsDatabaseName
 databricks secrets put --scope cilent001contribute --key SQLDWDatabaseName --string-value $SQLDWDatabaseName  
 databricks secrets put --scope cilent001contribute --key SQLDWServerName --string-value $SQLDWServerName
 databricks secrets put --scope cilent001contribute --key SQLDWUserName --string-value $SQLDWUserName
