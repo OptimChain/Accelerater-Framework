@@ -72,7 +72,7 @@ databricks secrets put --scope cilent001read --key SQLDWServerName --string-valu
 databricks secrets put --scope cilent001read --key SQLDWUserName --string-value $SQLDWUserName
 databricks secrets put --scope cilent001read --key SQLDWPassword --string-value $SQLDWPassword
 
-databricks secrets put-acl --scope cilent001admin --principal  --permission READ
-databricks secrets put-acl --scope cilent001contribute --principal  --permission READ
-databricks secrets put-acl --scope cilent001publish --principal  --permission READ
-databricks secrets put-acl --scope cilent001read --principal  --permission READ
+databricks secrets put-acl --scope cilent001admin --principal --permission READ
+databricks secrets put-acl --scope cilent001contribute --principal --permission READ
+databricks secrets put-acl --scope cilent001publish --principal --permission READ
+databricks secrets put-acl --scope cilent001read --principal --permission READ
