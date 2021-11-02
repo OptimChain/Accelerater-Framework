@@ -8,5 +8,6 @@ Figure 1: Permission access for Framework architecture
 ![image](https://user-images.githubusercontent.com/84352976/139795026-27afdd69-d7d6-42de-a49f-c17e309bead6.png)
 
 Figure 2: Secret Scope access for Data-Factory
+
 ![image](https://user-images.githubusercontent.com/84352976/139795289-53c33810-26fb-44e2-b265-4eb75da94e7d.png)
 
