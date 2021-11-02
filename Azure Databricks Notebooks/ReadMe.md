@@ -5,7 +5,7 @@ Figure 1 contains the overall framework architecture. This consists of:
 3. SCIM Connecter connects Active Directory to Databricks scopes
 
 Figure 1: Permission access for Framework architecture
-![image](https://user-images.githubusercontent.com/84352976/139795026-27afdd69-d7d6-42de-a49f-c17e309bead6.png)
+![image](https://user-images.githubusercontent.com/84352976/139796156-ff23f289-6542-44df-8f58-7b9a8410a5d2.png)
 
 Figure 2: Secret Scope access for Data-Factory
 
