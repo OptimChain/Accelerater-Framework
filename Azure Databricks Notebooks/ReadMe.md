@@ -3,9 +3,8 @@ Figure 1 contains the overall framework architecture. This consists of:
 1. Cluster level permissions manages User Level Access for cilents  
 2. Databricks Secret Scopes Manages access for Data Factory (Figure 2)
 3. SCIM Connecter connects Active Directory to Databricks scopes
+
 ![image](https://user-images.githubusercontent.com/84352976/139795224-93f02d1e-4df0-4a16-8d5c-c1c5f9d339dc.png)
-
-
 
 
 
