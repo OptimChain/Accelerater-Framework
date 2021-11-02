@@ -5,6 +5,7 @@ This Repo contains a lightweight working build of the Azure Platform Accelerator
 * Tutorial contains in-depth set-up docs
 * Weekly Sessions contain weekly learning topics around the framework
 * Note that there are two total databricks environments and the ReadMe in the Azure Databricks Notebooks folder lists this in detail.
+* A zipped file of a working Framework Database is located in
 
 
 **Figure 1**
