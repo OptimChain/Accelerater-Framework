@@ -10,6 +10,7 @@ This Repo contains a lightweight working build of the Azure Platform Accelerator
 
 **Figure 1**
 
-![image](https://user-images.githubusercontent.com/84352976/138962752-96518df5-a180-4813-98cf-743a0ccda1d2.png)
+![image](https://user-images.githubusercontent.com/84352976/144665542-151fbee7-ff2a-461c-be80-0f779aac2124.png)
+
 
 
